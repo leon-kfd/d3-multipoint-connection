@@ -124,11 +124,12 @@ class PointManager {
   }
 
   linkPoint () {
-    const pointArr = [...document.querySelectorAll('[data-point]')].map(item => {
-      return {
+    const pointArr = []
+    document.querySelectorAll('[data-point]').forEach(item => {
+      pointArr.push({
         x: ~~item.getAttribute('cx'),
         y: ~~item.getAttribute('cy')
-      }
+      })
     })
     if (pointArr.length <= 2) return
     const curve = this.getCurrentCurve()
