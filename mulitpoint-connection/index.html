@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <link rel="stylesheet" href="main.css">
+  <title>Multipoint connection</title>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="operation-wrapper">
+        <div class="item">
+          <span class="label">LineType</span>
+          <select id="lineType" class="form-control" value="curveCardinal">
+            <option value="curveBasis">curveBasis</option>
+            <option value="curveBasisClosed">curveBasisClosed</option>
+            <option value="curveBasisOpen">curveBasisOpen</option>
+            <option value="curveBundle">curveBundle</option>
+            <option value="curveCardinal" selected>curveCardinal</option>
+            <option value="curveCardinalClosed">curveCardinalClosed</option>
+            <option value="curveCardinalOpen">curveCardinalOpen</option>
+            <option value="curveCatmullRom">curveCatmullRom</option>
+            <option value="curveCatmullRomClosed">curveCatmullRomClosed</option>
+            <option value="curveCatmullRomOpen">curveCatmullRomOpen</option>
+            <option value="curveLinear">curveLinear</option>
+            <option value="curveLinearClosed">curveLinearClosed</option>
+            <option value="curveMonotoneX">curveMonotoneX</option>
+            <option value="curveMonotoneY">curveMonotoneY</option>
+            <option value="curveNatural">curveNatural</option>
+            <option value="curveStep">curveStep</option>
+            <option value="curveStepAfter">curveStepAfter</option>
+            <option value="curveStepBefore">curveStepBefore</option>
+          </select>
+        </div>
+        <div class="item" id="lineTypeControlWrapper">
+          <span class="label" id="lineTypeControlLabel"></span>
+          <input type="number" id="lineTypeControlValue" class="form-control" step="0.1">
+        </div>
+        <div class="item">
+          <button id="add" class="form-control">Add Random Point</button>
+        </div>
+      </div>
+      <div class="svg-wrapper">
+        <svg id="main" width="600px" height="600px" viewBox="0 0 600 600">
+          <circle class="fake-point hidden" r="5" stroke="#262626" stroke-width="1" stroke-dasharray="0.5,0.5" fill="none">
+          </circle>
+          <path id="line" stroke="#262626" stroke-width="2" fill="none"></path>
+        </svg>
+      </div>
+    </div>
+  </main>
+  <footer>Copyright &copy; 2020 <a href="https://kongfandong.cn">Leon.D</a></footer>
+  <script src="https://cdn.bootcdn.net/ajax/libs/d3/5.16.0/d3.min.js"></script>
+  <script src="bundle.js"></script>
+</body>
+</html>

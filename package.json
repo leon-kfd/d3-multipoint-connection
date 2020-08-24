@@ -5,5 +5,9 @@
     "@rollup/plugin-babel": "^5.2.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "rollup-plugin-uglify": "^6.0.4"
+  },
+  "scripts": {
+    "build:adjust": "rollup -c rollup.adjust.config.js",
+    "build:mulitpoint": "rollup -c rollup.mulitpoint.config.js"
   }
 }

@@ -1,9 +1,9 @@
 import babel from '@rollup/plugin-babel';
 import { uglify } from 'rollup-plugin-uglify';
 export default {
-  input: 'main.js',
+  input: 'mulitpoint-connection/main.js',
   output: {
-    file: 'bundle.js',
+    file: 'mulitpoint-connection/bundle.js',
     format: 'iife'
   },
   plugins: [

@@ -8,9 +8,10 @@ class PointManager {
   constructor (el) {
     this.el = el
     this.movingCircleEl = this.el.querySelector('.fake-point')
+    console.log({a:this.el})
     this.centerPoint = {
-      x: 300,
-      y: 300
+      x: this.el.clientWidth / 2,
+      y: this.el.clientHeight / 2
     }
     this.index = 0
     this.R = 5
@@ -133,6 +134,7 @@ class PointManager {
     })
     if (pointArr.length <= 2) return
     const curve = this.getCurrentCurve()
+    console.log('curve', curve)
     d3.select('#line')
         .datum(pointArr)
           .attr("d", 
@@ -154,10 +156,15 @@ class PointManager {
 }
 
 const $ = (selector) => document.querySelector(selector)
+const width = $('.svg-wrapper').offsetWidth
+setAttribute($('#main'), {
+  width: width + 'px',
+  viewBox: `0 0 ${width} 600`
+})
 const ctx = new PointManager($('#main'))
-ctx.addPoint(300, 150)
-ctx.addPoint(150, 450)
-ctx.addPoint(450, 450)
+ctx.addPoint(width * 0.5, 150)
+ctx.addPoint(width * 0.25, 450)
+ctx.addPoint(width * 0.75, 450)
 
 function renderTypeControl () {
   const typeControl = Object.keys(ctx.lineTypeControlMap).find(key => ctx.lineType.includes(key))
@@ -172,7 +179,7 @@ function renderTypeControl () {
 renderTypeControl()
 
 $('#add').addEventListener('click', () => {
-  ctx.addRandomPoint()
+  ctx.addRandomPoint(width / 2)
 })
 
 $('#lineType').addEventListener('change', (e) => {
